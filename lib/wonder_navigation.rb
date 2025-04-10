@@ -8,9 +8,8 @@ require "wonder_navigation/deferrable_option"
 require "wonder_navigation/crumb"
 require "wonder_navigation/controller"
 
-if defined?(ActionView)
-  require "wonder_navigation/helper"
-  ActionView::Base.send :include, WonderNavigation::Helper
+ActiveSupport.on_load(:action_view) do
+  include WonderNavigation::Helper
 end
 
 module WonderNavigation

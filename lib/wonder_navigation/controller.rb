@@ -1,9 +1,10 @@
 module WonderNavigation
   module Controller
-
-    def self.included(controller)
-      controller.before_action :set_default_wonder_navigation_page
-      controller.before_action :set_current_wonder_navigation_menu
+    extend ActiveSupport::Concern
+    
+    included do
+      before_action :set_default_wonder_navigation_page
+      before_action :set_current_wonder_navigation_menu
     end
 
     def set_default_wonder_navigation_page
